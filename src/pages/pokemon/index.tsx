@@ -1,5 +1,5 @@
 import Layout from "../../components/Layout";
-import Link from "next/Link";
+import Link from "next/link";
 
 const typesBackground: any = {
   grass: "bg-green-200",

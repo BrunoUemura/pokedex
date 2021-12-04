@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import Link from "next/Link";
+import Link from "next/link";
 import Layout from "../components/Layout";
 import Pokedex from "../components/Pokedex";
 import TopBar from "../components/Topbar";

@@ -1,4 +1,4 @@
-import Head from "next/Head";
+import Head from "next/head";
 import { ReactChild } from "react";
 import SideBar from "../Sidebar";
 import TopBar from "../Topbar";

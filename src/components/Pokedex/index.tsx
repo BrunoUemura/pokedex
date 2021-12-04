@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import Link from "next/Link";
+import Link from "next/link";
 import Layout from "../Layout";
 
 export default function Pokedex({ pokemons }: any) {
