@@ -1,8 +1,4 @@
-import type { NextPage } from "next";
-import Link from "next/link";
-import Layout from "../components/Layout";
-import Pokedex from "../components/Pokedex";
-import TopBar from "../components/Topbar";
+import Pokedex from "./pokedex";
 
 export default function Home({ pokemons }: any) {
   return (
@@ -12,7 +8,7 @@ export default function Home({ pokemons }: any) {
   );
 }
 
-export async function getStaticProps(context: any) {
+export async function getStaticProps(_context: any) {
   const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=151");
   const { results } = await res.json();
   const pokemons = results.map((result: any, index: any) => {

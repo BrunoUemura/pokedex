@@ -1,29 +1,18 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import Layout from "../../components/Layout";
+import PokemonListItem from "../../components/PokemonListItem";
 
 export default function Pokedex({ pokemons }: any) {
   return (
-    <Layout title="NextJS Pokedex">
+    <Layout title="Pokedex">
       <>
-        <h1 className="text-4xl mb-8 text-center">NextJS Pokedex</h1>
-        <div className="grid grid-cols-3 gap-4">
+        <h1 className="text-4xl mb-8 text-center">ポケモン図鑑 - Pokedex</h1>
+        <ul className="grid grid-cols-3 gap-4">
           {pokemons?.map((pokemon: any, index: any) => (
-            <div key={index}>
-              <Link href={`/pokemon?id=${index + 1}`}>
-                <a className="border p-4 border-gray my-2 capitalize flex items-center text-lg bg-gray-100 rounded-md">
-                  <img
-                    className="w-20 h-20 mr-3"
-                    src={pokemon.image}
-                    alt={pokemon.name}
-                  />
-                  <span className="mr-2 font-bold">{index + 1}.</span>
-                  {pokemon.name}
-                </a>
-              </Link>
-            </div>
+            <PokemonListItem key={index} pokemon={pokemon} index={index} />
           ))}
-        </div>
+        </ul>
       </>
     </Layout>
   );

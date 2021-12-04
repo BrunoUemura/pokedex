@@ -20,7 +20,7 @@ export default function Layout({ title, children }: Props) {
       {/* <TopBar /> */}
       {/* <SideBar /> */}
 
-      <main className="container mx-auto max-w-xl pt-8 min-h-screen">
+      <main className="container mx-auto max-w-3xl pt-8 min-h-screen">
         {children}
       </main>
     </div>
