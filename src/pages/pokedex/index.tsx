@@ -11,7 +11,7 @@ export default function Pokedex({ pokemons }: any) {
           {pokemons?.map((pokemon: any, index: any) => (
             <div key={index}>
               <Link href={`/pokemon?id=${index + 1}`}>
-                <a className="border p-4 border-gray my-2 capitalize flex items-center text-lg bg-gray-200 rounded-md">
+                <a className="border p-4 border-gray my-2 capitalize flex items-center text-lg bg-gray-100 rounded-md">
                   <img
                     className="w-20 h-20 mr-3"
                     src={pokemon.image}
