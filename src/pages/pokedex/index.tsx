@@ -1,36 +1,24 @@
 /* eslint-disable @next/next/no-img-element */
-import Link from "next/link";
 import Layout from "../../components/Layout";
-import PokemonListItem from "../../components/PokemonListItem";
+import PokemonCard from "../../components/PokemonCard";
+import { SearchContent, useSearchContext } from "../../context/SearchContext";
 
 export default function Pokedex({ pokemons }: any) {
+  const { searchPokemon }: SearchContent = useSearchContext();
+
   return (
-    <Layout title="Pokedex">
-      <>
-        <h1 className="text-4xl mb-8 text-center">ポケモン図鑑 - Pokedex</h1>
+    <Layout title="Pokédex - ポケモン図鑑">
+      <div className="mt-28">
         <ul className="grid grid-cols-3 gap-4">
-          {pokemons?.map((pokemon: any, index: any) => (
-            <PokemonListItem key={index} pokemon={pokemon} index={index} />
-          ))}
+          {pokemons?.map((pokemon: any, index: any) => {
+            if (pokemon.name.startsWith(searchPokemon)) {
+              return (
+                <PokemonCard key={index} pokemon={pokemon} index={index} />
+              );
+            }
+          })}
         </ul>
-      </>
+      </div>
     </Layout>
   );
-}
-
-export async function getStaticProps(context: any) {
-  const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=151");
-  const { results } = await res.json();
-  const pokemons = results.map((result: any, index: any) => {
-    const paddedIndex = ("00" + (index + 1)).slice(-3);
-    const image = `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${paddedIndex}.png`;
-    return {
-      ...result,
-      image,
-    };
-  });
-
-  return {
-    props: { pokemons },
-  };
 }

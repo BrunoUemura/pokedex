@@ -7,14 +7,16 @@ export default function index({ pokemon }: any) {
   return (
     <Layout title={pokemon.name}>
       <div
-        className={`${typesBackground[pokemon.types[0].type.name]} rounded-3xl`}
+        className={`${
+          typesBackground[pokemon.types[0].type.name]
+        } rounded-3xl shadow-lg`}
       >
         <h1 className="text-4xl mt-2 mb-2 text-center capitalize">
           #{pokemon.id}
         </h1>
         <img className="mx-auto z-50" src={pokemon.image} alt={pokemon.name} />
 
-        <div className="w-full bg-white rounded-t-3xl p-4">
+        <div className="w-full bg-white rounded-t-3xl p-4 shadow-lg">
           <div className="flex flex-col justify-center items-center">
             <h1 className="text-4xl mt-2 mb-2 text-center capitalize">
               {pokemon.name}

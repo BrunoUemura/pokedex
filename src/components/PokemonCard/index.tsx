@@ -1,11 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 
-export default function PokemonListItem({ pokemon, index }: any) {
+export default function PokemonCard({ pokemon, index }: any) {
   return (
     <li key={index}>
-      <Link href={`/pokemon?id=${index + 1}`}>
-        <div className="border p-4 border-gray my-2 capitalize flex flex-col items-center text-lg bg-gray-100 rounded-md cursor-pointer transition duration-500 transform hover:scale-105">
+      <Link href={`/pokemon?id=${index + 1}`} passHref>
+        <div className="border p-4 border-gray my-2 capitalize flex flex-col items-center text-lg bg-gray-100 rounded-md cursor-pointer transition duration-300 transform hover:scale-105 shadow-md">
           <img
             className="w-20 h-20 mr-3"
             src={pokemon.image}
