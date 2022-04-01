@@ -1,9 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import { TiDelete } from "react-icons/ti";
-import { SearchContent, useSearchContext } from "../../context/SearchContext";
+import { SearchContent, useSearchContext } from "../context/SearchContext";
 
-export default function TopBar() {
+export default function Navbar() {
   const { searchPokemon, setSearchPokemon }: SearchContent = useSearchContext();
 
   function handleClear() {
@@ -11,9 +11,14 @@ export default function TopBar() {
   }
 
   return (
-    <div className="fixed z-50 top-0 h-24 w-screen flex flex-row justify-evenly items-center bg-red-800 shadow-sm">
+    <div
+      className={`
+      fixed z-50 top-0 h-24 w-screen flex flex-col
+      justify-evenly items-center bg-red-800 shadow-sm
+      lg:flex-row md:flex-row`}
+    >
       <Link href="/" passHref>
-        <h1 className="text-white text-center cursor-pointer text-3xl ml-12">
+        <h1 className="text-white text-center cursor-pointer text-2xl">
           ポケモン図鑑 - Pokédex
         </h1>
       </Link>
@@ -25,7 +30,7 @@ export default function TopBar() {
           placeholder="Search Pokemon..."
           value={searchPokemon}
           onChange={(event) => {
-            setSearchPokemon(event.target.value);
+            setSearchPokemon(event.target.value.toLowerCase());
           }}
         />
         <span
